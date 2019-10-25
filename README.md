@@ -21,16 +21,14 @@ Clone the project, extract `GitHubUsersWallOnREADME.jar` from the `release` dire
 java -jar GitHubUsersWallOnREADME
 ```
 
-程序刚开始运行会询问列数，到达列数后会自动换行。
-
-由于GitHub API接口的限制，一小时内只能生成`60`个用户。
-
+程序刚开始运行会询问列数，到达列数后会自动换行。  
+由于GitHub API接口的限制，一小时内只能生成`60`个用户。  
+在你输入`q!`以后，程序会自动生成并且保存到`github-wall-result.txt`文件当中。  
 你可以将生成后的Markdown，直接复制到你的`README.md`当中：
 
-When the program starts running, it will query the number of columns. When the number of columns is reached, it will automatically wrap.
-
-Due to the limitations of the GitHub API interface, only `60` users can be generated in an hour.
-
+When the program starts running, it will query the number of columns. When the number of columns is reached, it will automatically wrap.  
+Due to the limitations of the GitHub API interface, only `60` users can be generated in an hour.  
+After you type `q!`, the program will be automatically generated and saved to the `github-wall-result.txt` file.  
 You can copy the generated Markdown directly into your `README.md`:
 
-![QQ图片20191026001426.png](https://pic.stackoverflow.wiki/uploadImages/0526408e-bf1f-41b8-a588-22731567929f.png)
+![QQ图片20191026001426.png](https://pic.stackoverflow.wiki/uploadImages/8c758623-cb66-4cd1-a279-526eced6c02b.png)

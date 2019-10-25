@@ -58,7 +58,6 @@ public class Put extends Thread {
             e.printStackTrace();
             return new String[] {"https://avatars3.githubusercontent.com/u/18028768?v=4", ""};
         } catch (IOException e) {
-            e.printStackTrace();
             return new String[] {"https://avatars3.githubusercontent.com/u/18028768?v=4", ""};
         }
     }

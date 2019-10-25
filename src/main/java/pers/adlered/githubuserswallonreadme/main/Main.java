@@ -7,6 +7,8 @@ import pers.adlered.githubuserswallonreadme.push.Help;
 import pers.adlered.githubuserswallonreadme.value.Put;
 import pers.adlered.githubuserswallonreadme.value.Statics;
 
+import java.io.*;
+
 public class Main {
     public static void main(String[] args) {
         Help.firstHelp();
@@ -37,7 +39,21 @@ public class Main {
         }
         Statics.executor.shutdownNow();
         String result = Form.markdown(Statics.users);
-        Logger.log("Result: ");
-        System.out.println(result);
+        try {
+            File file = new File("github-wall-result.txt");
+            if (file.exists()) {
+                file.delete();
+            }
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(result.getBytes());
+            fileOutputStream.flush();
+            fileOutputStream.close();
+            Logger.log("Result:");
+            System.out.println();
+            System.out.println(result);
+            Logger.log("Generate successfully! Result also stored to file \"" + file.getAbsoluteFile() + "\"");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
