@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="GitHubUsersWallOnREADME:jar">
+    <output-path>$PROJECT_DIR$/release</output-path>
+    <root id="archive" name="GitHubUsersWallOnREADME.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="GitHubUsersWallOnREADME" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.62/fastjson-1.2.62.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
