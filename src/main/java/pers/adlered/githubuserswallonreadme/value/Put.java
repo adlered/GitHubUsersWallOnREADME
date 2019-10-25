@@ -54,10 +54,10 @@ public class Put extends Thread {
             in.close();
             JSONObject jsonObject = JSON.parseObject(json.toString());
             return new String[] {jsonObject.get("avatar_url").toString(), jsonObject.get("login").toString()};
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return new String[] {"https://avatars3.githubusercontent.com/u/18028768?v=4", ""};
         } catch (IOException e) {
+            Logger.log("ERROR", "The request failed and the number of GitHub API requests may have reached the limit. Please try again in an hour.");
+            Logger.log("INPUT", Statics.count + " :: Input a GitHub UserLink Or GitHub Username: ");
+            System.out.print("> ");
             return new String[] {"https://avatars3.githubusercontent.com/u/18028768?v=4", ""};
         }
     }

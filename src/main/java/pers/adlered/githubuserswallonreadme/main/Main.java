@@ -14,7 +14,7 @@ public class Main {
         Help.firstHelp();
         String last = "";
         while (true) {
-            System.out.println(Statics.count + " :: Input a GitHub UserLink Or GitHub Username: ");
+            Logger.log("INPUT", Statics.count + " :: Input a GitHub UserLink Or GitHub Username: ");
             System.out.print("> ");
             last = ConsoleListen.listen();
             if (last.equals("q!")) {
@@ -23,11 +23,11 @@ public class Main {
             Statics.executor.execute(new Put(last));
             Statics.processing++;
             Statics.count++;
-            Logger.log("Processing \"" + last + "\" in background.");
+            Logger.log("INFO", "Processing \"" + last + "\" in background.");
         }
         while (true) {
             if (Statics.processing != 0) {
-                System.out.println(Statics.processing + " thread(s) still processing, please wait...");
+                Logger.log(Statics.processing + " thread(s) still processing, please wait...");
             } else {
                 break;
             }
@@ -48,10 +48,10 @@ public class Main {
             fileOutputStream.write(result.getBytes());
             fileOutputStream.flush();
             fileOutputStream.close();
-            Logger.log("Result:");
-            System.out.println();
-            System.out.println(result);
-            Logger.log("Generate successfully! Result also stored to file \"" + file.getAbsoluteFile() + "\"");
+            Logger.log("INFO", "Result:");
+            Logger.log();
+            Logger.log(result);
+            Logger.log("INFO", "Generate successfully! Result also stored to file \"" + file.getAbsoluteFile() + "\"");
         } catch (IOException e) {
             e.printStackTrace();
         }
