@@ -18,7 +18,7 @@ Clone本项目，提取`release`目录下的`GitHubUsersWallOnREADME.jar`，使�
 Clone the project, extract `GitHubUsersWallOnREADME.jar` from the `release` directory and run it with the following command:
 
 ```
-java -jar GitHubUsersWallOnREADME
+java -jar GitHubUsersWallOnREADME.jar
 ```
 
 程序刚开始运行会询问列数，到达列数后会自动换行。  
