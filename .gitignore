@@ -1,2 +1,4 @@
 # Project exclude paths
 /target/
+/github-wall-result.txt
+/release/github-wall-result.txt
