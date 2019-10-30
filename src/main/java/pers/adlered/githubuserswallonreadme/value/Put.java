@@ -2,18 +2,14 @@ package pers.adlered.githubuserswallonreadme.value;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import javafx.beans.binding.StringBinding;
-import jdk.nashorn.internal.parser.JSONParser;
 import pers.adlered.githubuserswallonreadme.log.Logger;
 import pers.adlered.githubuserswallonreadme.value.bind.UserAndAvatar;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Stack;
 
 public class Put extends Thread {
     private String userLinkOrName = "";
@@ -32,15 +28,15 @@ public class Put extends Thread {
         } else {
             realName = userLinkOrName;
         }
-        String[] avatar = getAvatar(realName);
-        if (!avatar[1].isEmpty()) {
-            realName = avatar[1];
+        String[] info = getInfo(realName);
+        if (!info[1].isEmpty()) {
+            realName = info[1];
         }
-        Statics.users.add(new UserAndAvatar("https://github.com/" + realName, avatar[0], realName));
+        Statics.users.add(new UserAndAvatar(info[0], realName, info[2]));
         Statics.processing--;
     }
 
-    private String[] getAvatar(String realName) {
+    private String[] getInfo(String realName) {
         // 通过接口读取用户头像
         StringBuilder json = new StringBuilder();
         try {
@@ -53,12 +49,12 @@ public class Put extends Thread {
             }
             in.close();
             JSONObject jsonObject = JSON.parseObject(json.toString());
-            return new String[] {jsonObject.get("avatar_url").toString(), jsonObject.get("login").toString()};
+            return new String[] {jsonObject.get("avatar_url").toString(), jsonObject.get("login").toString(), jsonObject.get("html_url").toString()};
         } catch (IOException e) {
             Logger.log("ERROR", "The request failed and the number of GitHub API requests may have reached the limit. Please try again in an hour.");
             Logger.log("INPUT", Statics.count + " :: Input a GitHub UserLink Or GitHub Username: ");
             System.out.print("> ");
-            return new String[] {"https://avatars3.githubusercontent.com/u/18028768?v=4", ""};
+            return new String[] {"https://avatars1.githubusercontent.com/u/6754458?v=4", "AdlerED", "https://github.com/AdlerED"};
         }
     }
 }

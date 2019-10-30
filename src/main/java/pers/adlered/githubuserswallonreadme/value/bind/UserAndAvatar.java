@@ -5,10 +5,10 @@ public class UserAndAvatar {
     private String userAvatar;
     private String username;
 
-    public UserAndAvatar(String userLink, String userAvatar, String username) {
-        this.userLink = userLink;
+    public UserAndAvatar(String userAvatar, String username, String userLink) {
         this.userAvatar = userAvatar;
         this.username = username;
+        this.userLink = userLink;
     }
 
     public String getUserLink() {
